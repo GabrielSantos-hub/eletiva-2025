@@ -1,31 +1,64 @@
-<!doctype html>
+<!DOCTYPE html> 
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lista de exercícios Eletivas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista de exercícios Eletivas</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+    crossorigin="anonymous"
+  />
+</head>
 
-  </head>
+<body>
+  <main class="container mt-4"> <!--Margem superior-->
+    <h1 class="mb-4">Formulário</h1>
 
-  <body>
-    <main>
-        <h1>Formulário</h1>
-        <form action="#" method="post">
-            <div class="mb-3">
-                <label for="name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
-            </div>
-            <div>
-                <label for="name" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Last Name">
-            </div>
-            <label for="name" class="form-label">UserName</label>
-            <input type="text" class="form-control" id="userName" placeholder="UserName">
-            <button type="submit"></button>
-        </form>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <form action="#" method="post" class="row g-3">
+      
+      <div class="col-md-4">
+        <label for="firstName" class="form-label">First Name</label><!-- o for deve ter o mesmo nome que o id -->
+        <input type="text" class="form-control" id="firstName" placeholder="Name"><!-- Type define qual tipo de dado entra no input -->
+      </div>
 
-    </main>
-  </body>
+      <div class="col-md-4"> <!--tamanho da coluna 4/12 -->
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+      </div>
+
+      <div class="col-md-4">
+        <label for="userName" class="form-label">Username</label>
+        <input type="text" class="form-control" id="userName" placeholder="Username">
+      </div>
+
+      <div class="col-md-6">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" placeholder="City">
+      </div>
+
+      <div class="col-md-3">
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state" placeholder="State">
+      </div>
+
+      <div class="col-md-3">
+        <label for="zip" class="form-label">Zip</label>
+        <input type="number" class="form-control" id="zip" placeholder="Zip">
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit form</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"
+  ></script>
+</body>
 </html>
