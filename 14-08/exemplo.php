@@ -9,7 +9,7 @@
 <body>
     <?php //variavel em php começa com cifrão
     $dia = date("d");
-
+    echo "<p>" . $dia . "</p>";
 
 
     ?>
