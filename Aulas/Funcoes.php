@@ -27,7 +27,7 @@
     echo "<p>Valor arredendado: ".round($valor)."</p>";
     $valor= rand(1, 100);
     echo "<p> Valor aleatório: $valor </p>";
-    echo"<p> Raiz quadrada de 16:". sqrt(16)."</p>";
+    echo"<p> Raiz quadrada de 16:". round(sqrt(16))."</p>";
     $valor = 13.5;
     echo "<p> Valor formato: R$". number_format($valor, 2, ",", ".")."</p>";
 
