@@ -32,7 +32,7 @@
             } elseif ($Valor2 > $Valor1) {
                 echo "Ordem crescente: " . $Valor1 . " " . $Valor2;
             } elseif ($Valor1 == $Valor2) {
-                echo "Números iguais: {$Valor1}";
+                echo "valores iguais: {$Valor1}";
             }
         }
         ?>

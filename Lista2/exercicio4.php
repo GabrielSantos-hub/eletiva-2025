@@ -25,7 +25,7 @@
             if ($Valor >= 100) {
                 $Descontado = $Valor * 0.15;
                 $Descontado = $Valor - $Descontado;
-                echo "Novo valor do produto: " . round($Descontado, 2). "R$";
+                echo "Produto com 15% de desconto: " . round($Descontado, 2). "R$";
             } else {
                 echo "<p>Não há desconto em produtos com um preço menor que 100R$ </p>";
                 echo "Preço do produto: {$Valor}R$";
