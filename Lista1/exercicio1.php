@@ -13,11 +13,11 @@
   <div class="container">
     <h1>Soma valores</h1>
     <form method="post">
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="valor" class="form-label">Valor 1</label>
         <input type="number" id="valor" name="valor1" class="form-control" required="">
       </div>
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="valor 2" class="form-label">Valor 2</label>
         <input type="number" id="valor 2" name="valor2" class="form-control" required="">
       </div>
