@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="utf-8">
+       <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-       <title>Exercício 5</title>
+       <title>Exercício 6</title>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -14,18 +14,24 @@
               <form method="post">
                      <div class="col-4 mb-3">
                             <label for="numero" class="form-label">Informe um número</label>
-                            <input type="number" id="numero" name="numero" class="form-control" step="any" required="">
+                            <input type="number" id="numero" name="numero" class="form-control" step="any" required>
                      </div>
                      <button type="submit" class="btn btn-primary">Enviar</button>
               </form>
+
               <?php
               if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      $numero = $_POST['numero'];
-                     echo "O número arredondado é: " . round($numero);
+                     $arredondado = arredondarNumero($numero);
+                     echo "<p>O número arredondado é: $arredondado</p>";
+              }
+              function arredondarNumero($numero)
+              {
+                     return round($numero);
               }
               ?>
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
        </div>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

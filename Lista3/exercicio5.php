@@ -14,19 +14,23 @@
               <form method="post">
                      <div class="col-4 mb-3">
                             <label for="numero" class="form-label">Informe um número</label>
-                            <input type="number" id="numero" name="numero" class="form-control" required="">
+                            <input type="number" id="numero" name="numero" class="form-control" required>
                      </div>
                      <button type="submit" class="btn btn-primary">Enviar</button>
               </form>
               <?php
               if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      $numero = $_POST['numero'];
-                     $raiz1 = sqrt($numero);
-                     echo "<p> Raiz quadrada é de: " . round($raiz1, 2) . "</p>";
+                     $raiz = calcularRaizQuadrada($numero);
+                     echo "<p>Raiz quadrada de {$numero} é: " . round($raiz, 2) . "</p>";
+              }
+                 function calcularRaizQuadrada($numero)
+              {
+                     return sqrt($numero);
               }
               ?>
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
        </div>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

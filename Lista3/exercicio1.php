@@ -14,18 +14,24 @@
     <form method="post">
       <div class="col-4 mb-3">
         <label for="palavra" class="form-label">Digite uma palavra</label>
-        <input type="text" id="palavra" name="palavra" class="form-control" required="">
+        <input type="text" id="palavra" name="palavra" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     <?php
+   
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
       $palavra = $_POST['palavra'];
-      echo "<p> Quantidade caracteres: " . strlen($palavra);
+      $quantidade = contarCaracteres($palavra);
+      echo "<p>Quantidade de caracteres: $quantidade</p>";
+    }
+     function contarCaracteres($palavra)
+    {
+      return strlen($palavra);
     }
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

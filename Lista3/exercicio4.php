@@ -26,8 +26,15 @@
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
-
     <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $dia = $_POST['dia'];
+      $mes = $_POST['mes'];
+      $ano = $_POST['ano'];
+
+      echo "<p>" . validarData($dia, $mes, $ano) . "</p>";
+    }
+
     function validarData($dia, $mes, $ano)
     {
       if (checkdate($mes, $dia, $ano)) {
@@ -36,13 +43,6 @@
       } else {
         return "A data informada não existe.";
       }
-    }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $dia = $_POST['dia'];
-      $mes = $_POST['mes'];
-      $ano = $_POST['ano'];
-
-      echo "<p>" . validarData($dia, $mes, $ano) . "</p>";
     }
     ?>
   </div>
