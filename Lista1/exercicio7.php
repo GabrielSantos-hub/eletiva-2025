@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Exercício 7</h1>
         <form method="post">
-            <div class="mb-3">
+            <div class="col-4 mb-3">
                 <label for="valor" class="form-label">Temperatura em Fahrenheit</label>
                 <input type="number" id="valor" name="valor" class="form-control" required="">
             </div>

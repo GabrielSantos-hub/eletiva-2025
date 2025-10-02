@@ -12,7 +12,7 @@
   <div class="container">
     <h1>Exercício 9 </h1>
     <form method="post">
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="raio" class="form-label">Insira o Raio do círculo : </label>
         <input type="number" id="raio" name="raio" class="form-control" required="">
       </div>

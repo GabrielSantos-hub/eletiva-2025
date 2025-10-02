@@ -12,7 +12,7 @@
     <div class="container py-3">
         <h1>Exercício 19</h1>
         <form method="post">
-            <div class="mb-3">
+            <div class="col-4 mb-3">
                 <label for="dias" class="form-label">Informe os Dias</label>
                 <input type="number" id="dias" name="dias" class="form-control" required="">
             </div>
@@ -26,12 +26,11 @@
             $minutos = $horas * 60;
             $segundos = $minutos * 60;
             echo "<p>A quantidade de dias é equivalente a<p>";
-            echo "<ul>";
-            echo "horas: $horas";
-            echo "minutos: $minutos";
+            echo "horas: $horas ---";
+            echo " minutos: $minutos ---";
+            echo " segundos: $segundos ";
         }
         ?>
-
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </div>

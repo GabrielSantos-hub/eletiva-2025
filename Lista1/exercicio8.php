@@ -12,11 +12,11 @@
   <div class="container">
     <h1>Exercício 8</h1>
     <form method="post">
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="altura" class="form-label">Altura</label>
         <input type="number" id="altura" name="altura" class="form-control" required="">
       </div>
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="largura" class="form-label">Largura</label>
         <input type="number" id="largura" name="largura" class="form-control" required="">
       </div>

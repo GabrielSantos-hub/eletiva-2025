@@ -25,11 +25,12 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST");
-        $PESO = $_POST["peso"];
-        $ALTURA = $_POST["altura"];
-        $IMC = $PESO / ($ALTURA ** 2);
-        echo "O IMC é de: " . round($IMC, 2); //round é para arredondar  - step="0.01" aceita números decimais 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $PESO = $_POST["peso"];
+            $ALTURA = $_POST["altura"];
+            $IMC = $PESO / ($ALTURA ** 2);
+            echo "O IMC é de: " . round($IMC, 2); //round é para arredondar  - step="0.01" aceita números decimais 
+        }
         ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

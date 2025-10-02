@@ -12,15 +12,15 @@
   <div class="container py-3">
     <h1>Exercício 18</h1>
     <form method="post">
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="capital" class="form-label">Informe um capital</label>
         <input type="number" id="capital" name="capital" class="form-control" required="">
       </div>
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="taxa" class="form-label">Informe a taxa</label>
         <input type="number" id="taxa" name="taxa" class="form-control" required="">
       </div>
-      <div class="mb-3">
+      <div class="col-4 mb-3">
         <label for="periodo" class="form-label">Informe o período</label>
         <input type="number" id="periodo" name="periodo" class="form-control" required="">
       </div>
@@ -32,8 +32,8 @@
       $capital = $_POST['capital'];
       $taxa = $_POST["taxa"];
       $periodo = $_POST['periodo'];
-      $juros = $capital * (1 + $taxa) ** $periodo;
-      echo "O valor do juros é: $juros";
+      $juros = $capital * (1 + ($taxa/100)) ** $periodo;
+      echo "O valor do juros é: ".round($juros, 2);
     }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
