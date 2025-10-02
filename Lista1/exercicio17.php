@@ -22,7 +22,7 @@
       </div>
       <div class="col-4 mb-3">
         <label for="periodo" class="form-label">Informe o período</label>
-        <input type="number" id="periodo" name="periodo" class="form-control" required="" step="0.01">
+        <input type="number" id="periodo" name="periodo" class="form-control" required="">
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
