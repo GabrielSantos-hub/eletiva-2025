@@ -26,13 +26,33 @@ h2 {
           echo"<p class='text-danger'>Erro ao realizar o cadastro!</p>";
         }
       }
+      if($_SERVER['REQUEST_METHOD'] == "POST"){
+        require('conexao.php');
+        $email = $_POST['email'];
+        $senha = $_POST["senha"];
+        try{
+          $stmt = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
+          $stmt->execute([$email]);
+          $usuario = $stmt-> fetch(PDO::FETCH_ASSOC);
+          if($usuario && password_verify($senha, $usuario['senha'])){
+            session_start();
+            $_SESSION['acesso'] = true;
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header('location: principal.php');
+          }else{
+            echo"<p class='text-danger'>Credenciais inválidas!</p>";
+          }
+        }catch(\Exception $e){
+          echo"Erro: ".$e->getMessage();
+        }
+
+      }
 
     ?>
-    <h2 class="mb-4">Cadastro Usuário</h2>
-    <form action="/login" method="POST">
+    <h2 class="mb-4">Acesso ao Sistema</h2>
+    <form action="index.php" method="POST">
 
-
-    
     <div class="col-md-4">
         <label for="username" class="form-label">E-mail</label>
         <div class="input-group">

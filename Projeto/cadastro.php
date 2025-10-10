@@ -38,7 +38,7 @@
 
         $senha = password_hash($_POST["senha"], PASSWORD_BCRYPT );
         try{
-           $stmt = $pdo->prepare("INSERT INTO usuário(nome, email, senha) Values (?,?,?)");
+           $stmt = $pdo->prepare("INSERT INTO usuario(nome, email, senha) Values (?,?,?)");
             if($stmt->execute([$nome, $email, $senha])){
                 header("location: index.php?cadastro=true");
             }

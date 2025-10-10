@@ -5,49 +5,50 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema projetophp
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema projetophp
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `projetophp` DEFAULT CHARACTER SET utf8 ;
+USE `projetophp` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuário`
+-- Table `projetophp`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuário` (
-  `idusuario` INT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `projetophp`.`usuario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
-  `senha` TEXT NOT NULL,
-  PRIMARY KEY (`idusuario`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Categoria`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Categoria` (
-  `idcategoria` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`idcategoria`))
+  `senha` TEXT NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Produto`
+-- Table `projetophp`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Produto` (
-  `idProduto` INT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `projetophp`.`categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `projetophp`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `projetophp`.`produto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(255) NOT NULL,
   `valor` DECIMAL(8,2) NOT NULL,
-  `Categoria_idcategoria` INT NOT NULL,
-  PRIMARY KEY (`idProduto`),
-  INDEX `fk_Produto_Categoria_idx` (`Categoria_idcategoria` ASC),
-  CONSTRAINT `fk_Produto_Categoria`
-    FOREIGN KEY (`Categoria_idcategoria`)
-    REFERENCES `mydb`.`Categoria` (`idcategoria`)
+  `categoria_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
+  CONSTRAINT `fk_produto_categoria`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `projetophp`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
