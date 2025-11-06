@@ -4,15 +4,15 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $nome = $_POST['nome'];
         try{
-            $stmt=
-            $pdo->prepare("INSERT INTO categoria (nome) VALUES (?)");
+            $stmt = 
+                $pdo->prepare("INSERT INTO categoria (nome) VALUES (?)");
             if($stmt->execute([$nome])){
                 header('location: categorias.php?cadastro=true');
-            }else{
+            } else {
                 header('location: categorias.php?cadastro=false');
             }
         }catch(\Exception $e){
-            echo"Erro: ".$e->getMessage();
+            echo "Erro: ".$e->getMessage();
         }
     }
 ?>

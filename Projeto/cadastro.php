@@ -8,9 +8,8 @@
 </head>
 <body>
   <div class="container mt-5">
-    
     <h2 class="mb-4">Cadastro de Usuário</h2>
-    <form method="POST">
+    <form action="cadastro.php" method="POST">
       <div class="mb-3">
         <label for="nomeCadastro" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nomeCadastro" name="nome" placeholder="Digite seu nome completo" required />
@@ -30,26 +29,25 @@
       <a href="login.php">Faça login aqui</a>
     </p>
   </div>
-<?php
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+  <?php
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
         require("conexao.php");
         $nome = $_POST['nome'];
         $email = $_POST['email'];
-
-        $senha = password_hash($_POST["senha"], PASSWORD_BCRYPT );
+        $senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
         try{
-           $stmt = $pdo->prepare("INSERT INTO usuario(nome, email, senha) Values (?,?,?)");
+            $stmt = $pdo->prepare("INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)");
             if($stmt->execute([$nome, $email, $senha])){
                 header("location: index.php?cadastro=true");
-            }
-            else {
+            } else{
                 header("location: index.php?cadastro=false");
             }
+        } catch(Exception $e){
+            echo "Erro ao executar o comando SQL: ".$e->getMessage();
         }
-        catch(Exception $e){
-            echo"Erro ao executar o comando SQL: ". $e->getMessage();
-        }
+
     }
-?>
+
+    ?>
 </body>
 </html>
