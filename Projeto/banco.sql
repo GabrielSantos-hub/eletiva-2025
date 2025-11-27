@@ -1,61 +1,48 @@
--- MySQL Workbench Forward Engineering
+CREATE SCHEMA IF NOT EXISTS `lavanderia_db` DEFAULT CHARACTER SET utf8;
+USE `lavanderia_db`;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema projetophp
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema projetophp
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `projetophp` DEFAULT CHARACTER SET utf8 ;
-USE `projetophp` ;
-
--- -----------------------------------------------------
--- Table `projetophp`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
   `nome` VARCHAR(255) NOT NULL,
   `senha` TEXT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 
--- -----------------------------------------------------
--- Table `projetophp`.`categoria`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`categoria` (
+CREATE TABLE IF NOT EXISTS `cliente` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `telefone` VARCHAR(20),
+  `endereco` VARCHAR(255),
+  PRIMARY KEY (`id`));
 
 
--- -----------------------------------------------------
--- Table `projetophp`.`produto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `projetophp`.`produto` (
+CREATE TABLE IF NOT EXISTS `tipo_servico` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `descricao` VARCHAR(255) NOT NULL,
-  `valor` DECIMAL(8,2) NOT NULL,
-  `categoria_id` INT NOT NULL,
+  `nome` VARCHAR(255) NOT NULL,
+  `valor` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE IF NOT EXISTS `item_roupa` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE IF NOT EXISTS `pedido` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cliente_id` INT NOT NULL,
+  `tipo_servico_id` INT NOT NULL,
+  `item_roupa_id` INT NOT NULL,
+  `data_pedido` DATE NOT NULL,
+  `observacao` TEXT,
   PRIMARY KEY (`id`),
-  INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
-  CONSTRAINT `fk_produto_categoria`
-    FOREIGN KEY (`categoria_id`)
-    REFERENCES `projetophp`.`categoria` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+  FOREIGN KEY (`tipo_servico_id`) REFERENCES `tipo_servico` (`id`),
+  FOREIGN KEY (`item_roupa_id`) REFERENCES `item_roupa` (`id`));
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
+INSERT INTO `usuario` (`email`, `nome`, `senha`) VALUES
+('admin@lavanderia.com', 'Administrador', '$2y$10$8sA1N6bQz5.XlK.2/u1.UO9/j4.2.1.2.1.2.1.2.1.2.1.2');
